@@ -104,6 +104,6 @@ Cuba.define do
   end
 
   on get do
-    res.write view("index", title: "Welcome")
+    res.write view("index", title: "Welcome to a new experience using GitHub issues!")
   end
 end
