@@ -6,6 +6,14 @@ GitHub issues for projects.
 To use it, you'll need to sign up for an OAuth2 Application ID and
 Secret on the [GitHub Applications Page](https://github.com/account/applications).
 
+## TODO
+
+* Improve design! (Perhaps with something like Twitter Bootstrap)
+* Add proper user checking
+* Cache GitHub API queries results
+* Add tests
+* ...etc...
+
 ## License
 
 Copyright (c) 2012 Leandro López
