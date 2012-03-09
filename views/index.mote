@@ -1,8 +1,11 @@
-<h1>Welcome</h1>
-<!-- <pre>{{ session.to_json }}</pre> -->
-<!-- <pre>{{ current_user.to_json }}</pre> -->
-% if authenticated?
-<p>Hello {{ current_user.name }}! Go to <a href="/{{ current_user.login }}">your homepage</a>.</p>
-% else
-<a href="/auth/github">GitHub login</a>
-% end
+<div class="hero-unit">
+  <h1>Better GitHub Issues</h1>
+
+  <p>GitHub Issues 2.0 is awesome and we won't deny that, but using it everyday we've found that it doesn't fully adjust to our needs, so we came up with this website idea where you can interact with your GitHub repositories issues in a new and improved way.</p>
+
+  % if authenticated?
+  <p>Hello {{ current_user.name }}! Go to <a href="/{{ current_user.login }}">your homepage</a> and start browsing your repositories.</p>
+  % else
+  <p><a class="btn btn-primary btn-large" href="/auth/github">Sign me up!</a></p>
+  % end
+</div>

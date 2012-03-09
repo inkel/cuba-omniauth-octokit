@@ -1,6 +1,6 @@
-<h1>{{ current_user.name }} ({{ current_user.login }})</h1>
-
-<!-- <pre>{{ current_user.to_json }}</pre> -->
+<div class="page-header">
+  <h1>{{ current_user.name }} ({{ current_user.login }})</h1>
+</div>
 
 <h2>Your repositories</h2>
 

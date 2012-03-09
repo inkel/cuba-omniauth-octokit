@@ -10,7 +10,7 @@ Cuba.use Rack::Session::Cookie,
 
 Cuba.use Rack::Static,
   root: "public",
-  urls: ["/js", "/css", "/images"]
+  urls: ["/js", "/css", "/img"]
 
 Cuba.use OmniAuth::Builder do
   provider :github, ENV["GITHUB_KEY"], ENV["GITHUB_SECRET"], scope: "user,repo"
@@ -25,6 +25,10 @@ class Cuba
 
   def view(template, locals = {})
     partial("layout", locals.merge(content: partial(template, locals)))
+  end
+
+  def format_issue_body body
+    GitHub::Markup.render("issue.markdown", body)
   end
 end
 
@@ -110,6 +114,6 @@ Cuba.define do
   end
 
   on get do
-    res.write view("index", title: "Welcome")
+    res.write view("index", title: "Welcome!")
   end
 end

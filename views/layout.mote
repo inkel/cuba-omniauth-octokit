@@ -1,15 +1,35 @@
 <!doctype html>
 <html>
   <head>
-    <title>{{title}} | Better GitHub Issues</title>
+    <title>{{ title }} | Better GitHub Issues</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <link href="/css/normalize.css" rel="stylesheet" type="text/css" />
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="/css/app.css" rel="stylesheet" type="text/css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
   </head>
-  <body>
-    % if authenticated?
-    <p><a href="/logout">Logout</a></p>
-    % end
-    {{content}}
+  <body class="container">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container" style="width: auto">
+          <a class="brand" href="/">Better GitHub Issues</a>
+          <ul class="nav pull-right">
+            % if authenticated?
+            <li><a href="/logout">Logout</a></li>
+            % else
+            <li><a href="/auth/github">Login using GitHub</a></li>
+            % end
+          </ul>
+          % if authenticated?
+          <ul class="nav">
+            <li><a href="/{{ current_user.login }}">Home</a></li>
+          </ul>
+          % end
+        </div>
+      </div>
+    </div>
+    <section id="main" class="container">
+      {{content}}
+    </section>
   </body>
 </html>
