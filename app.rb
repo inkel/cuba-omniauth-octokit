@@ -10,7 +10,7 @@ Cuba.use Rack::Session::Cookie,
 
 Cuba.use Rack::Static,
   root: "public",
-  urls: ["/js", "/css", "/images"]
+  urls: ["/js", "/css", "/img"]
 
 Cuba.use OmniAuth::Builder do
   provider :github, ENV["GITHUB_KEY"], ENV["GITHUB_SECRET"], scope: "user,repo"

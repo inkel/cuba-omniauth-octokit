@@ -3,8 +3,7 @@
   <head>
     <title>{{title}} | Better GitHub Issues</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <link href="/css/normalize.css" rel="stylesheet" type="text/css" />
-    <link href="/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     % if authenticated?
