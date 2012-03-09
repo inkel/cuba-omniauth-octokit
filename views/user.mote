@@ -1,0 +1,15 @@
+<h1>{{ current_user.name }} ({{ current_user.login }})</h1>
+
+<!-- <pre>{{ current_user.to_json }}</pre> -->
+
+<h2>Your repositories</h2>
+
+<dl id="repos">
+  % current_user.repositories.each do |repo|
+  <dt><a href="{{ repo.html_url }}">{{ repo.name }}</a></dt>
+  <dd><a href="/{{ repo.owner.login }}/{{ repo.name }}/issues">view issues</a></dd>
+  % unless repo.description.empty?
+  <dd>{{ repo.description }}</dd>
+  % end
+  % end
+</dl>

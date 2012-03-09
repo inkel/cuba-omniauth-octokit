@@ -1,0 +1,8 @@
+<h1>Welcome</h1>
+<!-- <pre>{{ session.to_json }}</pre> -->
+<!-- <pre>{{ current_user.to_json }}</pre> -->
+% if authenticated?
+<p>Hello {{ current_user.name }}! Go to <a href="/{{ current_user.login }}">your homepage</a>.</p>
+% else
+<a href="/auth/github">GitHub login</a>
+% end
