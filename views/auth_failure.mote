@@ -1,0 +1,5 @@
+<h1>Authentication failure</h1>
+
+<p>It seems you denied GitHub access for this application or some other error occurred. You can check your application credentials at your <a href="https://github.com/settings/applications">application settings</a> on GitHub.</p>
+
+<a href="/">Go back to the home page</a>
