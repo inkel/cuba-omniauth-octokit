@@ -25,9 +25,9 @@
           % end
         </div>
       </div>
-      <section id="main" class="container">
-        {{content}}
-      </section>
     </div>
+    <section id="main" class="container">
+      {{content}}
+    </section>
   </body>
 </html>
