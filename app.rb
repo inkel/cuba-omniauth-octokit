@@ -26,6 +26,10 @@ class Cuba
   def view(template, locals = {})
     partial("layout", locals.merge(content: partial(template, locals)))
   end
+
+  def format_issue_body body
+    GitHub::Markup.render("issue.markdown", body)
+  end
 end
 
 class User < Ohm::Model

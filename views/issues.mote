@@ -18,7 +18,7 @@
           % end
         </ul>
         % end
-        <div>{{ issue.body }}</div>
+        <div>{{ format_issue_body issue.body }}</div>
       </div>
     </div>
   </article>
