@@ -67,22 +67,28 @@ Cuba.define do
     @session ||= env["rack.session"]
   end
 
-  on get, "auth/:provider/callback" do |provider|
-    auth = env["omniauth.auth"]
+  on get, "auth" do
+    on ":provider/callback" do |provider|
+      auth = env["omniauth.auth"]
 
-    user = User[auth["uid"].to_i]
+      user = User[auth["uid"].to_i]
 
-    if user.nil?
-      user = User.create(id: auth["uid"].to_i)
+      if user.nil?
+        user = User.create(id: auth["uid"].to_i)
+      end
+
+      user.update(login: auth["info"]["nickname"],
+                  name: auth["info"]["name"],
+                  token: auth["credentials"]["token"])
+
+      session["User"] = user.id
+
+      res.redirect "/#{user.login}"
     end
 
-    user.update(login: auth["info"]["nickname"],
-                name: auth["info"]["name"],
-                token: auth["credentials"]["token"])
-
-    session["User"] = user.id
-
-    res.redirect "/#{user.login}"
+    on "failure" do
+      res.write view("auth_failure", title: "Authentication failure")
+    end
   end
 
   on get, "logout" do
