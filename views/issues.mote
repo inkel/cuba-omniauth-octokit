@@ -2,16 +2,27 @@
   <h2>{{ repo }} issues</h2>
 </div>
 
-% issues.each do |issue|
-<article id="issue-{{ issue.id }}" class="issue" data-labels="{{ issue.labels.map{ |l| l.name }.join(' ') }}">
-  <h3><a href="{{ issue.html_url }}" class="{{ issue.state }}">{{ issue.title }}</a></h3>
-  % if issue.labels.length > 0
-  <ul class="labels">
-    % issue.labels.each do |label|
-    <li class="label" style="background: #{{ label.color }}">{{ label.name }}</li>
-    % end
-  </ul>
+<div class="accordion">
+  % issues.each do |issue|
+  <article id="issue-{{ issue.id }}" class="issue accordion-group" data-labels="{{ issue.labels.map{ |l| l.name }.join(' ') }}">
+    <div class="accordion-heading">
+      <h3 class="{{ issue.state }} accordion-toggle" data-toggle="collapse" data-target="#issue-{{ issue.id }}-body">{{ issue.title }}</h3>
+    </div>
+    <div class="collapse accordion-body" id="issue-{{ issue.id }}-body">
+      <div class="accordion-inner">
+        <p><a href="{{ issue.html_url }}" class="small">(GitHub)</a></p>
+        % if issue.labels.length > 0
+        <ul class="labels">
+          % issue.labels.each do |label|
+          <li class="label" style="background: #{{ label.color }}">{{ label.name }}</li>
+          % end
+        </ul>
+        % end
+        <div>{{ issue.body }}</div>
+      </div>
+    </div>
+  </article>
   % end
-  <pre>{{ issue.body }}</pre>
-</article>
-% end
+</div>
+
+<script>$(".collapse").collapse()</script>
