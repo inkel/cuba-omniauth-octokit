@@ -7,3 +7,11 @@
     border-radius: 0.25em;
     padding: 0.25em;
 }
+
+.issue .labels {
+    margin: 0.25em 0;
+}
+
+.issue .labels .label {
+    display: inline-block;
+}
