@@ -4,11 +4,21 @@
     <title>{{title}} | Better GitHub Issues</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/css/app.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    % if authenticated?
-    <p><a href="/logout">Logout</a></p>
-    % end
-    {{content}}
+    <div class="container">
+      % if authenticated?
+      <header>
+        <div class="btn-group">
+          <a class="btn" href="/logout">Logout</a>
+        </div>
+        <h1>{{ title }}</h1>
+      </header>
+      % end
+      <section id="main">
+        {{content}}
+      </section>
+    </div>
   </body>
 </html>

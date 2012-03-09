@@ -1,0 +1,11 @@
+header {
+    /* border: 1px solid black; */
+    /* border-top: none; */
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 0.25em 0;
+}
+
+header .btn-group {
+    float: right;
+}
