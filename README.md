@@ -8,9 +8,10 @@ Secret on the [GitHub Applications Page](https://github.com/account/applications
 
 ## TODO
 
-* Improve design! (Perhaps with something like Twitter Bootstrap)
-* Add proper user checking
-* Cache GitHub API queries results
+* Improve design!
+* Query GitHub API directly from JavaScript. Cache GitHub API queries
+  results by using HTML5 `sessionStorage`
+* Implement Backbone.js for views management
 * Add tests
 * ...etc...
 
